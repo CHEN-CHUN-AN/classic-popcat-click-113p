@@ -78,6 +78,33 @@
     <img class="title" src="imgs/popcat.svg" alt="POPCAT">
     <div class="cat-img" id="p">0202</div>
 </div>
+<script>
+    let counter = 0;
+    const catImage = document.getElementById('p'); // 取得貓咪圖片的 div
 
+    function incrementCounter() {
+        counter++;
+        catImage.innerText = counter; // 更新計數器顯示
+    }
+
+
+    catImage.addEventListener("mousedown", function () {
+        incrementCounter();
+    });
+    catImage.addEventListener("mousedown", function () {
+        incrementCounter();
+        catImage.id = 'op'; // 切換張嘴圖片
+        playPopSound(); // 播放音效
+    });// 監聽滑鼠放開事件
+    catImage.addEventListener("mouseup", function () {
+        catImage.id = 'p'; // 切換回閉嘴圖片
+    });
+
+    // 播放音效的函數
+    function playPopSound() {
+        const audio = new Audio('pops/pop1.mp3');
+        audio.play();
+    }
+</script>
 </body>
 </html>
